@@ -6,6 +6,7 @@ class Graph{
 	int nvertices=0, nedges=0, vertex1, vertex2;
 	bool directed=false;
 	vector<int> a[MAXV];
+	int visited[MAXV];
 	
 	public:
 	Graph(int a=0, int b=0, bool directed=false){
@@ -59,12 +60,25 @@ class Graph{
 		}
 	}
 
-	void DFS(){
+	void DFS(int source){
+		memset(visited, 0, nvertices+1);
+		procedureDFS(source);
+		cout<<endl;
+	}
 
+	void procedureDFS(int source){
+		//stack<int> S;
+		visited[source] = 1;
+		cout<<source<< " ";
+		for(int i=0; i<a[source].size(); ++i){
+			if(!visited[a[source][i]])
+				procedureDFS(a[source][i]);
+		}
 	}
 };
 
 int main(){
 	Graph graph;
+	graph.DFS(2);
 	//graph.printGraph();
 }
