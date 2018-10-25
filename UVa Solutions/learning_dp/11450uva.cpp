@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+/*Done*/
 using namespace std;
 
 int m,c;
@@ -15,7 +16,7 @@ int shop(int money,int g){
 		return m-money;
 	//for each garment g we have k(price[g][0]) choices of models so we try'em all and take the maximum
 	int ans=-1;
-	for(int i=1; i<price[g][0]; ++i)
+	for(int i=1; i<=price[g][0]; ++i)
 		ans =  max(ans,shop(money-price[g][i], g+1));
 	
 	//finally return the ans

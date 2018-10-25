@@ -58,7 +58,7 @@ int main(){
 		int flag=0;
 		sum = (n*n + n - 2*x);
 		//cout << sum;
-		if(sum%4 != 0 || n==2){
+		if(sum%4 != 0 || n<=3){
 			cout<<"impossible\n";
 			continue;
 		}
@@ -77,12 +77,15 @@ int main(){
 				if(remain == 0)
 					break;
 				if(remain<0){
-					//cout<<"reached heare\n";
+					//cout<<"reached here\n";
 					if(abs(remain) == x){
 
 						for(int i=0; i<x; ++i){
+							//cout<<"Reached here too\n";
+							//cout<<"Remain = "<<remain<<endl;
 							result[i] = 1;
-							remain = remain-i-1;
+							remain = abs(remain)-i-1;
+							//cout<<"Remain = "<<remain<<endl;
 							if(remain==0){flag=1; break; }
 							if(remain<0){
 								result[abs(remain)-1] = 0;
